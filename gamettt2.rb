@@ -41,6 +41,18 @@ require 'pry'
          
          return computer
     end
+    
+        def get_computer_action2 user_action
+            computer = user_action
+         begin
+            computer = Random.new.rand(9)
+            puts computer
+         end while (@board[computer.to_i] != ' '  )
+         
+         return computer
+    end
+    
+    
  ##---------------------------------------------------------------   
    def get_winner   
         winner_name = ''       
