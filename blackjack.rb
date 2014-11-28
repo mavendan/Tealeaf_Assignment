@@ -14,6 +14,7 @@
     Dealer let you know if he has black jack before you ask for more cards
 Game sample: http://zone.msn.com/gameplayer/gameplayer.aspx?game=blackjack&instance=default
 9. User must be able to register
+<<<<<<< HEAD
 http://zone.msn.com/en/blackjack/
 
 10. About the cards. Review the following link
@@ -23,6 +24,12 @@ http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/10/deck-of-cards.html
 #Game description
 #-----------------------------------------------------------
 
+=======
+=end
+#Game description
+#-----------------------------------------------------------
+# PSEUDO CODE
+>>>>>>> origin/master
 #. User provide his name
 #. The system register the new user
 #. Ask him if he wants to play
