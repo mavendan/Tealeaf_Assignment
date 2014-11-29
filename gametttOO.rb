@@ -3,18 +3,20 @@ require 'pry'
 ## gametttOO.rb (Tick Tack Toe)
 ## Tick Tac Toe OOP
 ##---------------------------------------------------------------
-class Format
+module Format
     def print_message msg
         puts "=>#{msg}"
     end
 end
 
-#Board (knows how to draw itself and received the values and to tell who wins)
+#Board (knows how to draw itself and received the 
+#values and to tell who wins)
 ##*********************************************************
-class Board < Format
+class Board 
+    include Format
       
-      attr_accessor :board
-      EMPTY = ' '
+    attr_accessor :board
+    EMPTY = ' '
       
     def initialize
     
@@ -22,7 +24,7 @@ class Board < Format
         @winning_positions = [[0,1,2], [3,4,5], [6,7,8], [0,4,8], [2,4,6], [0,3,6], [1,4,7], [2,5,8]]
         
     end
-    ##---------------------------------------------------------------    
+        
     def set_mark  user
     
         if user.action.to_i < 9 && user.action.to_i >= 0
@@ -32,7 +34,7 @@ class Board < Format
         end
         
     end    
-    ##---------------------------------------------------------------    
+        
     def is_winner user
     
         game_is_done = 0        
@@ -44,7 +46,7 @@ class Board < Format
       return game_is_done
       
     end
-    ##--------------------------------------------------------------- 
+    
     def is_position_empty position
     
         is_empty = 0
@@ -55,7 +57,7 @@ class Board < Format
         return is_empty
         
     end
-    ##---------------------------------------------------------------
+    
     def to_s
        system "cls"
         puts "     |     |     "     
@@ -70,8 +72,10 @@ class Board < Format
     end
 
 end
-##*********************************************************
-class Player < Format
+
+class Player 
+    
+    include Format
     
     attr_accessor :name, :action, :symbol
     
@@ -79,7 +83,7 @@ class Player < Format
         self.symbol = symbol
         self.name = name
     end
-    ##---------------------------------------------------------------
+    
     def get_automatic_action board
     
         begin
@@ -88,21 +92,24 @@ class Player < Format
 
         return self.action
     end
-    ##---------------------------------------------------------------
+    
     def to_s
         print_message "#{self.name} using #{self.symbol}"
     end
     
 end
-##*********************************************************
-class TTT < Format
+
+class TickTackToe 
+
+    include Format
+    
     attr_accessor :user, :computer
     def initialize
         self.user = Player.new('x', 'Player')
         self.computer = Player.new('o', 'Computer')
         @board = Board.new
     end
-    ##---------------------------------------------------------------
+    
     def start_game
         begin
             puts @board.to_s
@@ -128,8 +135,8 @@ class TTT < Format
     end
     
 end
-##*********************************************************
 
-##---------------------------------------------------------------
-game = TTT.new
+
+
+game = TickTackToe.new
 game.start_game
